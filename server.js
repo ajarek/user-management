@@ -18,6 +18,8 @@ app.set('view engine', 'ejs')
 //routes
 app.use(require('./routes/index'))
 app.use(require('./routes/compose'))
+app.use(require('./routes/action'))
+
 app.listen(port, () => {
     console.log('Server started listening:'+ port);
 })

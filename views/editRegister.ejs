@@ -1,0 +1,34 @@
+<%-include('./partials/header')%>
+<%-include('./partials/navbar')%>
+
+
+<<div class="container p-5 ">
+    <h4 class="my-3">Edytuj record... 🙂</h4>
+    <form class="row g-3" action="/edit/<%=record._id%>" method="POST" >
+        <div class="col-md-2">
+            <label for="nr" class="form-label">Number</label>
+            <input type="number" class="form-control" id="nr" name="nr" required value="<%=record.nr%>">
+          </div>
+        <div class="col-md-5">
+          <label for="first" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="first" name="first" required value="<%=record.first%>">
+        </div>
+        <div class="col-md-5">
+          <label for="last" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="last" name="last" required value="<%=record.last%>">
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required value="<%=record.email%>">
+          </div>
+          <div class="col-md-6">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="tel" class="form-control" id="phone" name="phone" required value="<%=record.phone%>">
+          </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+
+<%-include('./partials/footer')%>

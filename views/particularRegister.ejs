@@ -1,0 +1,30 @@
+<%-include('./partials/header')%>
+<%-include('./partials/navbar')%>
+
+<div class="container">
+    <div class=" d-flex w-100 justify-content-between ">
+     
+    <tbody>
+      <tr>
+  
+        <th scope="row"><%= record.nr %></th>
+        <td><%= record.first %></td>
+        <td><%= record.last %></td>
+        <td><%= record.email %></td>
+        <td><%= record.phone %></td>
+        <td>
+          
+          <a class="btn-sm btn-success text-decoration-none" href="/edit/<%=record._id%>">
+            <i class="far fa-edit"></i> Edit</a>
+          <a class="btn-sm btn-danger text-decoration-none mx-2" href="/delete/<%=record._id%>">
+            <i class="fas fa-user-times"></i> Delete</a>
+        </td>
+  
+      </tr>
+  
+    </tbody>
+    
+    
+  
+
+<%-include('./partials/footer')%>

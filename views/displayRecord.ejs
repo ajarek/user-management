@@ -1,35 +1,66 @@
 <%-include('./partials/header')%>
 <%-include('./partials/navbar')%>
 <div class="container">
-    <div class=" d-flex w-100 justify-content-between "><h4>Users</h4><a class="btn btn-primary text-decoration-none " href="/compose">+ add user</a></div>
+  <div class=" d-flex w-100 justify-content-between ">
+    <h4>Users</h4><a class="btn btn-primary text-decoration-none " href="/compose">+ add user</a>
+  </div>
 </div>
 
-<table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Phone</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <%records.forEach(record=>{%>
-    <tbody>
-      <tr>
+<table class="table table-striped" id="myTable">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <%records.forEach(record=>{%>
+  <tbody>
+    <tr>
+
+      <th scope="row"><%= record.nr %></th>
+      <td><%= record.first %></td>
+      <td><%= record.last %></td>
+      <td><%= record.email %></td>
+      <td><%= record.phone %></td>
+      <td>
         
-        <th scope="row"><%= record.nr %></th>
-        <td><%= record.first %></td>
-        <td><%= record.last %></td>
-        <td><%= record.email %></td>
-        <td><%= record.phone %></td>
-        <td><a class="btn-sm btn-warning text-decoration-none mx-2" href="#"><i class="far fa-eye"></i> View</a><a class="btn-sm btn-success text-decoration-none" href="#"><i class="far fa-edit"></i> Edit</a><a class="btn-sm btn-danger text-decoration-none mx-2" href="#" ><i class="fas fa-user-times"></i> Delete</a></td>
-       
-      </tr>
-      
-    </tbody>
-    <%})%>
-  </table>
+        <a class="btn-sm btn-success text-decoration-none" href="/edit/<%=record._id%>">
+          <i class="far fa-edit"></i> Edit</a>
+        <a class="btn-sm btn-danger text-decoration-none mx-2" href="/delete/<%=record._id%>">
+          <i class="fas fa-user-times"></i> Delete</a>
+      </td>
+
+    </tr>
+
+  </tbody>
+  <%})%>
+</table>
+<script>
+  function myFunction() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  
+  </script>
+
+
 
 <%-include('./partials/footer')%>
