@@ -1,0 +1,30 @@
+<%-include('./partials/header')%>
+<%-include('./partials/navbar')%>
+<div class="container p-5 ">
+<form class="row g-3" action="/compose/" method="POST" >
+    <div class="col-md-2">
+        <label for="nr" class="form-label">Number</label>
+        <input type="number" class="form-control" id="nr" name="nr" required>
+      </div>
+    <div class="col-md-5">
+      <label for="first" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="first" name="first" required>
+    </div>
+    <div class="col-md-5">
+      <label for="last" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="last" name="last" required>
+    </div>
+    <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="col-md-6">
+        <label for="phone" class="form-label">Phone</label>
+        <input type="tel" class="form-control" id="phone" name="phone" required>
+      </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+  </form>
+</div>
+<%-include('./partials/footer')%>
