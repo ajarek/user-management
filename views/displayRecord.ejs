@@ -4,41 +4,43 @@
   <div class=" d-flex w-100 justify-content-between ">
     <h4>Users</h4><a class="btn btn-primary text-decoration-none " href="/compose">+ add user</a>
   </div>
+
+
+  <table class="table table-striped " id="myTable">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <%records.forEach(record=>{%>
+    <tbody>
+      <tr>
+
+        <th scope="row"><%= record.nr %></th>
+        <td><%= record.first %></td>
+        <td><%= record.last %></td>
+        <td><%= record.email %></td>
+        <td><%= record.phone %></td>
+        <td>
+
+          <a class="btn-sm btn-success text-decoration-none" href="/edit/<%=record._id%>">
+            <i class="far fa-edit"></i> Edit</a>
+          <a class="btn-sm btn-danger text-decoration-none mx-2" href="/delete/<%=record._id%>">
+            <i class="fas fa-user-times"></i> Delete</a>
+        </td>
+
+      </tr>
+
+    </tbody>
+    <%})%>
+  </table>
+
 </div>
-
-<table class="table table-striped" id="myTable">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <%records.forEach(record=>{%>
-  <tbody>
-    <tr>
-
-      <th scope="row"><%= record.nr %></th>
-      <td><%= record.first %></td>
-      <td><%= record.last %></td>
-      <td><%= record.email %></td>
-      <td><%= record.phone %></td>
-      <td>
-        
-        <a class="btn-sm btn-success text-decoration-none" href="/edit/<%=record._id%>">
-          <i class="far fa-edit"></i> Edit</a>
-        <a class="btn-sm btn-danger text-decoration-none mx-2" href="/delete/<%=record._id%>">
-          <i class="fas fa-user-times"></i> Delete</a>
-      </td>
-
-    </tr>
-
-  </tbody>
-  <%})%>
-</table>
 <script>
   function myFunction() {
     var input, filter, table, tr, td, i, txtValue;
@@ -55,11 +57,10 @@
         } else {
           tr[i].style.display = "none";
         }
-      }       
+      }
     }
   }
-  
-  </script>
+</script>
 
 
 
