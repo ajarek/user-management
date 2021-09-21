@@ -16,10 +16,4 @@ router.get('/compose',(req,res)=>{
      })
      .catch(err=>console.log('err'))
 })
-
-
-
-
-
-
 module.exports=router
